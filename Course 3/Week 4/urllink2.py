@@ -13,9 +13,18 @@ ctx.verify_mode = ssl.CERT_NONE
 
 url = input('Enter - ')
 html = urllib.request.urlopen(url, context=ctx).read()
-soup = BeautifulSoup(html, 'html.parser')
+soup = BeautifulSoup(html, "html.parser")
 
 # Retrieve all of the anchor tags
-tags = soup('a')
+sum = 0
+i = 0
+tags = soup('span')
 for tag in tags:
-    print(tag.get('href', None))
+    # Look at the parts of a tag
+    a = tag.contents
+    num = (int)(a[0-1])
+    if isinstance(num, int):
+        sum += num
+        i += 1
+print("Count ", i)
+print("Sum ", sum)
