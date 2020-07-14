@@ -12,11 +12,13 @@ html = urllib.request.urlopen(url, context=ctx)
 print('Retrieving', url)
 data = html.read()
 print('Retrieved', len(data), 'characters')
-data.decode()
 tree = ET.fromstring(data)
-counts = tree.findall('.//count')
-print("Count: ", len(counts))
+counts = tree.findall('comments/comment')
+count = 0
 sum = 0
-for num in counts:
-    sum = sum + int(num)
+for item in counts:
+    x = int(item.find('count').text)
+    count += 1
+    sum += x
+print("Count: ", count)
 print("Sum: ", sum)
