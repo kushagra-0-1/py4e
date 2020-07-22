@@ -3,6 +3,7 @@ import urllib.parse
 import urllib.error
 from twurl import augment
 import ssl
+import json
 
 # https://apps.twitter.com/
 # Create App and get the four strings, put them in hidden.py
@@ -18,7 +19,7 @@ ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
 connection = urllib.request.urlopen(url, context=ctx)
-data = connection.read()
+data = connection.read().decode()
 print(data)
 
 print('======================================')
