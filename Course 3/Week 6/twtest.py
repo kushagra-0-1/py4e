@@ -10,7 +10,7 @@ import json
 
 print('* Calling Twitter...')
 url = augment('https://api.twitter.com/1.1/statuses/user_timeline.json',
-              {'screen_name': 'drchuck', 'count': '2'})
+              {'screen_name': 'Kushagr79016974', 'count': '2'})
 print(url)
 
 # Ignore SSL certificate errors
